@@ -20,7 +20,7 @@ namespace Aula1005_POO
             Console.WriteLine(cli.Cpf);
 
             Cliente cli2 = new Cliente("Juricreia");
-            Cliente cli3 = new Cliente("Juciliuda","123");
+           //Cliente cli3 = new Cliente("Juciliuda","123");
 
             Console.ReadKey();
         }

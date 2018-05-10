@@ -1,23 +1,14 @@
 ﻿namespace Aula1005_POO
 {
-    class Cliente
+    class Cliente : Pessoa
     {
-        private string nome;
-        private string cpf;
-        
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-
-        public Cliente() { }
-        public Cliente (string Nome)
+        public Cliente()
         {
-            Nome = nome;
+
         }
-
-        public Cliente(string nome, string cpf)
+        public Cliente(string nome) : base(nome)
         {
-            Nome = nome;
-            Cpf = cpf;
+
         }
     }
 }

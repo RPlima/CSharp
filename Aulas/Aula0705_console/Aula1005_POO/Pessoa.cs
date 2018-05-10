@@ -8,7 +8,23 @@ namespace Aula1005_POO
 {
     class Pessoa
     {
+        private string nome;
+        private string cpf;
 
+        public string Nome { get; set; }
+        public string Cpf { get; set; }
+
+        public Pessoa() { }
+        public Pessoa(string Nome)
+        {
+            Nome = nome;
+        }
+
+        public Pessoa(string nome, string cpf)
+        {
+            Nome = nome;
+            Cpf = cpf;
+        }
 
     }
 }
