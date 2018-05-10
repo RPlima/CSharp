@@ -20,9 +20,14 @@ namespace Aula1005_POO
             Console.WriteLine(cli.Cpf);
 
             Cliente cli2 = new Cliente("Juricreia");
-            Cliente cli3 = new Cliente("Juciliuda","123");
+            Console.WriteLine("cl2.Nome:"+cli2.Nome);
 
-            Pessoa p = new Pessoa();
+
+            //Cliente cli3 = new Cliente("Juciliuda","123");
+            cli2.DataNasc = new DateTime(1996,05,09);
+            cli2.DataQueNasceu = new DateTime();
+            Console.WriteLine(cli2.Nome+"Nasceu em: "+cli2.DataNasc);
+            
 
             Console.ReadKey();
         }
