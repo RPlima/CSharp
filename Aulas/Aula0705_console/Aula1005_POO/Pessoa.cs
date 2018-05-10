@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Aula1005_POO
 {
-    class Pessoa
+     public abstract class Pessoa
     {
         private string nome;
         private string cpf;
