@@ -9,6 +9,23 @@ namespace Aula1405_Interfaces
     class Carro : MeioTransporte
     {
         public int Velocidade { get; set; }
+        //Chave para objeto Marca
+        public int MarcaID { get; set; }
+        //Propriedade de Navegação
+        public virtual Marca _Marca { get; set; }
+
+        public string Modelo
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         public Carro()
         {

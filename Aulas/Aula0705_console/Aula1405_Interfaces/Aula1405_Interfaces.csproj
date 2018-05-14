@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Carro.cs" />
+    <Compile Include="Marca.cs" />
     <Compile Include="MeioTransporte.cs" />
     <Compile Include="Onibus.cs" />
     <Compile Include="Program.cs" />

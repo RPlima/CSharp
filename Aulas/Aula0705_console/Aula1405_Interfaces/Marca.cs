@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Aula1405_Interfaces
 {
-    interface MeioTransporte
+    class Marca
     {
-
-        string Modelo {get; set; }
-        void Acelerar();
-        void Desacelerar();
-        string ImprimirInfo();
+      public int id { get; set; }
+        public string Nome { get; set; }
     }
 }
