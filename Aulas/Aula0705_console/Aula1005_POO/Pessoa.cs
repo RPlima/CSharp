@@ -25,6 +25,6 @@ namespace Aula1005_POO
             Nome = nome;
             Cpf = cpf;
         }
-
+        public  abstract  string ImprimirInfo();
     }
 }

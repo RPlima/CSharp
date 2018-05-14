@@ -25,9 +25,8 @@ namespace Aula1005_POO
 
             //Cliente cli3 = new Cliente("Juciliuda","123");
             cli2.DataNasc = new DateTime(1996,05,09);
-            cli2.DataQueNasceu = new DateTime();
             Console.WriteLine(cli2.Nome+"Nasceu em: "+cli2.DataNasc);
-            
+            Console.WriteLine("Dados:"+ ImprimirInfo());
 
             Console.ReadKey();
         }

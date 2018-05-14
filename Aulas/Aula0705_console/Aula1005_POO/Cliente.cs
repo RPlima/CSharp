@@ -9,15 +9,9 @@ namespace Aula1005_POO
             get
             {
 
-                int YearsAge = DateTime.Now.Year - DataQueNasceu.Year;
-                // Se a data de aniversário não ocorreu ainda este ano, subtrair um ano a partir da idade
-                if (DateTime.Now.Month < DataQueNasceu.Month || (DateTime.Now.Month == DataQueNasceu.Month && DateTime.Now.Day < DataQueNasceu.Day))
-                {
-                    ide = YearsAge--;
-                }
-                return  idade = YearsAge;
-
+                return DateTime.Now.Year - DataQueNasceu.Year;
             }
+
         }
   
         public Cliente()
@@ -41,6 +35,11 @@ namespace Aula1005_POO
 
                 return DataQueNasceu;
             }
+        }
+
+        override
+        public string ImprimirInfo() {
+            return Nome + ", " + Cpf + ", " + DataNasc.ToShortDateString()+", "+idade;
         }
     }
 }
