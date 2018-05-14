@@ -8,7 +8,9 @@ namespace Aula1405_Interfaces
 {
     interface MeioTransporte
     {
+
         void Acelerar();
         void Desacelerar();
+        string ImprimirInfo();
     }
 }
