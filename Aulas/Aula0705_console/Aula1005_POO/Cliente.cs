@@ -13,7 +13,7 @@ namespace Aula1005_POO
                 // Se a data de aniversário não ocorreu ainda este ano, subtrair um ano a partir da idade
                 if (DateTime.Now.Month < DataQueNasceu.Month || (DateTime.Now.Month == DataQueNasceu.Month && DateTime.Now.Day < DataQueNasceu.Day))
                 {
-                    idade = YearsAge--;
+                    ide = YearsAge--;
                 }
                 return  idade = YearsAge;
 
