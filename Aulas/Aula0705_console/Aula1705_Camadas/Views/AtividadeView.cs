@@ -12,22 +12,25 @@ namespace Aula1705_Camadas.Views
     {
         private AtividadesController atividadeController;
 
-        enum MinhasOpcoes
+         enum OpcoesMenu
         {
             CriarAtividade = 1,
             ListarAtividade = 2,
             BuscarAtividade = 3,
             EditarAtividade = 4,
-            ExcluirAtividade =5
+            ExcluirAtividade =5,
+            Sair = 9
         }
 
         public AtividadeView()
         {
             atividadeController = new AtividadesController();
         }
+
+
         public void ExibirMenu()
         {
-            int op;
+            OpcoesMenu op = OpcoesMenu.Sair;
             do
             {
                 Console.WriteLine("=====================");
@@ -39,29 +42,40 @@ namespace Aula1705_Camadas.Views
                 Console.WriteLine(" 5) Excluir Atividade ");
                 Console.WriteLine(" 9) Sair ");
                 Console.WriteLine("=====================");
-                 op = int.Parse(Console.ReadLine());
+                 op = (OpcoesMenu)int.Parse(Console.ReadLine());
+
                 switch (op)
                 {
-                    case 1:
+                    case OpcoesMenu.CriarAtividade:
                         CriarAtividade();
+
                         break;
-                    case 2:
+                    case OpcoesMenu.ListarAtividade:
                         ListarAtividades();
+
                         break;
-                    case 3:
+                    case OpcoesMenu.BuscarAtividade:
                         BuscarAtividade();
+
                         break;
-                    case 4:
+                    case OpcoesMenu.EditarAtividade:
                         EditarAtividade();
+
                         break;
-                    case 5:
+                    case OpcoesMenu.ExcluirAtividade:
                         ExcluirAtividade();
+
+                        break;
+                    case OpcoesMenu.Sair:
+
                         break;
                     default:
                         break;
-                }
-            } while (op != 9);
+                } 
+
+              } while (op != OpcoesMenu.Sair);
         }
+            
 
         private void ExcluirAtividade()
         {
