@@ -10,6 +10,21 @@ namespace Aula1705_Camadas.Views
 {
     class AtividadeView
     {
+        private AtividadesController atividadeController;
+
+        enum MinhasOpcoes
+        {
+            CriarAtividade = 1,
+            ListarAtividade = 2,
+            BuscarAtividade = 3,
+            EditarAtividade = 4,
+            ExcluirAtividade =5
+        }
+
+        public AtividadeView()
+        {
+            atividadeController = new AtividadesController();
+        }
         public void ExibirMenu()
         {
             int op;
@@ -54,7 +69,7 @@ namespace Aula1705_Camadas.Views
             Console.WriteLine("Digite o id da atividade que deseja excluir: ");
             int id = int.Parse(Console.ReadLine());
             Atividade atividadeAtualizada = ObterDadosAtividade();
-            AtividadesController atividadeController = new AtividadesController();
+
             atividadeController.Excluir(id);
         }
 
@@ -64,7 +79,7 @@ namespace Aula1705_Camadas.Views
             Console.WriteLine("Digite o id da atividade que deseja editar: ");
            int id = int.Parse(Console.ReadLine());
             Atividade atividadeAtualizada = ObterDadosAtividade();
-            AtividadesController atividadeController = new AtividadesController();
+            
             atividadeController.Editar(id, atividadeAtualizada);
         }
 
@@ -72,8 +87,8 @@ namespace Aula1705_Camadas.Views
         {
             Atividade atividade = ObterDadosAtividade();
 
-            AtividadesController atividadeCtrl = new AtividadesController();
-            atividadeCtrl.Salvar(atividade);
+           
+            atividadeController.Salvar(atividade);
         }
 
         private static Atividade ObterDadosAtividade()
@@ -87,7 +102,7 @@ namespace Aula1705_Camadas.Views
 
         private void BuscarAtividade()
         {
-            AtividadesController atividadeController = new AtividadesController();
+         
             Console.WriteLine("Digite o id da atividade: ");
             int id = int.Parse(Console.ReadLine());
             Atividade atividade = atividadeController.BuscarPorId(id);
@@ -103,8 +118,8 @@ namespace Aula1705_Camadas.Views
 
         private void ListarAtividades()
         {
-            AtividadesController atividadesController = new AtividadesController();
-            foreach (Atividade atividade in atividadesController.Listar())
+            
+            foreach (Atividade atividade in atividadeController.Listar())
             {
                 ExibirDetalhesAtividade(atividade);
             }
