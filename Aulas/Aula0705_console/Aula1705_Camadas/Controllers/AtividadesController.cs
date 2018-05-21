@@ -58,18 +58,27 @@ namespace Aula1705_Camadas.Controllers
         }
 
         //BuscarPorNome
+        
+        #region Método buscar pelo nome
         public List<Atividade> BuscarByNome(string nome)
         {
-            List<Atividade> atividadesSelecionadas = new List<Atividade>();
-            foreach (Atividade a in ListaAtividades)
+            IEnumerable<Atividade> atividadesSelecionadas = new List<Atividade>();
+
+            atividadesSelecionadas = from x in ListaAtividades
+                                     where x.Nome.ToLower().Contains(nome.ToLower())
+                                     select x;
+         /*   foreach (Atividade a in ListaAtividades)
             {
                 if(a.Nome.ToLower().Contains(nome.ToLower()))
                 {
                     atividadesSelecionadas.Add(a);
                 }
-            }
-            return atividadesSelecionadas;
+            }*/
+
+
+            return atividadesSelecionadas.ToList();
         }
+        #endregion
         //Editar
         public void Editar(int id, Atividade atividadeAtualizada)
         {
