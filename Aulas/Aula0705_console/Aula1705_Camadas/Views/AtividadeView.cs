@@ -19,6 +19,8 @@ namespace Aula1705_Camadas.Views
             BuscarAtividade = 3,
             EditarAtividade = 4,
             ExcluirAtividade =5,
+            BuscarAtividadeNome = 6,
+            ListarAtividadesAtivo_Inativo = 7,
             Sair = 9
         }
 
@@ -40,6 +42,8 @@ namespace Aula1705_Camadas.Views
                 Console.WriteLine(" 3) Buscar Atividade  ");
                 Console.WriteLine(" 4) Editar Atividade  ");
                 Console.WriteLine(" 5) Excluir Atividade ");
+                Console.WriteLine(" 6) Buscar Por nome");
+                Console.WriteLine(" 7) Listar Atividades (Ativos/Inativos)");
                 Console.WriteLine(" 9) Sair ");
                 Console.WriteLine("=====================");
                  op = (OpcoesMenu)int.Parse(Console.ReadLine());
@@ -66,6 +70,13 @@ namespace Aula1705_Camadas.Views
                         ExcluirAtividade();
 
                         break;
+                    case OpcoesMenu.BuscarAtividadeNome:
+                        BuscarAtividadeByNome();
+                        break;
+                    case OpcoesMenu.ListarAtividadesAtivo_Inativo:
+                       // ListarAtivos_Inativos();
+
+                        break;
                     case OpcoesMenu.Sair:
 
                         break;
@@ -75,7 +86,19 @@ namespace Aula1705_Camadas.Views
 
               } while (op != OpcoesMenu.Sair);
         }
-            
+
+        private void BuscarAtividadeByNome()
+        {
+            Console.Write("Digite o nome da atividade que deseja procurar:");
+            string nomeAtividade = Console.ReadLine();
+            Console.WriteLine("-- Exibindo a lista de atividades por nome --");
+            foreach(Atividade a in atividadeController.BuscarByNome(nomeAtividade))
+            {
+                ExibirDetalhesAtividade(a);
+            }
+            Console.WriteLine("-- Fim da lista de atividades por nome --");
+            Console.ReadKey();
+        }
 
         private void ExcluirAtividade()
         {
@@ -110,7 +133,10 @@ namespace Aula1705_Camadas.Views
             Atividade atividade = new Atividade();
             Console.WriteLine("Digite o nome de atividade:");
             atividade.Nome = Console.ReadLine();
-            atividade.Ativo = true;
+
+            Console.WriteLine("Ativo? (s/n):");
+            atividade.Ativo = Console.ReadLine() == "s" ? true : false;
+
             return atividade;
         }
 
@@ -140,6 +166,24 @@ namespace Aula1705_Camadas.Views
             Console.WriteLine("Fim da List");
             Console.ReadKey();
         }
+
+       /* private void ListarAtivos_Inativos()
+        {
+            Console.WriteLine("Deseja listar Ativos Ou Inativos?(Ativo = s/Inativo = n)");
+            bool ativo = Console.ReadLine() == "s" ? true : false;
+            try
+            {
+                foreach (Atividade atividade in atividadeController.ListarAtivos_Inativos(ativo))
+                {
+                    ExibirDetalhesAtividade(atividade);
+                }
+                Console.WriteLine("Fim da List");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            } 
+        }*/
 
         private static void ExibirDetalhesAtividade(Atividade atividade)
         {

@@ -29,10 +29,24 @@ namespace Aula1705_Camadas.Controllers
         {
             return ListaAtividades;
         }
+        //Listar Ativos e Inativos
+       /* public List<Atividade> ListarAtivos_Inativos(bool atividade)
+        {
+            foreach (Atividade a in ListaAtividades)
+            {
+                if (a.Ativo.Equals(atividade))
+                {
+                    return a;
+                }
+            }
+            return null;
+            return ListaAtividades.Where(list => list.Ativo atividade)).FirstOrDefault();
+        }*/
+
         //Ler
         public Atividade BuscarPorId(int id)
         {
-            //return ListaAtividades.Where(a => a.AtividadeID == id).FirstOrDefault();
+           // return ListaAtividades.Where(a => a.AtividadeID == id).FirstOrDefault();
             foreach(Atividade a in ListaAtividades)
             {
                 if(a.AtividadeID == id)
@@ -41,6 +55,20 @@ namespace Aula1705_Camadas.Controllers
                 }
             }
             return null;
+        }
+
+        //BuscarPorNome
+        public List<Atividade> BuscarByNome(string nome)
+        {
+            List<Atividade> atividadesSelecionadas = new List<Atividade>();
+            foreach (Atividade a in ListaAtividades)
+            {
+                if(a.Nome.Contains(nome))
+                {
+                    atividadesSelecionadas.Add(a);
+                }
+            }
+            return atividadesSelecionadas;
         }
         //Editar
         public void Editar(int id, Atividade atividadeAtualizada)
