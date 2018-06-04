@@ -27,7 +27,7 @@ namespace Aula1705_Camadas.Controllers
         public IList<Atividade> ListarPorNome(string nome)
         {
             /* var atividadesComNome = from a in contexto.Atividades
-                         where a.Nome == nome
+                         where a.Nome.ToLower() == nome.ToLower()
                          select a;
              return atividadesComNome.ToList();
              */
